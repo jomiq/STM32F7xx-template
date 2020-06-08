@@ -17,7 +17,7 @@
 #include "ch.h"
 #include "hal.h"
 
-#include "scoper_format.h"
+#include "include/project_globals.h"
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -71,6 +71,6 @@ int main(void) {
    */
   while (true) {
     chThdSleepMilliseconds(500);
-    sdWrite(&SD3, (uint8_t*) "Ready...\r\n", 10);
+    sdWrite(&SD3, (uint8_t*) READY_MSG, READY_MSG_N);
   }
 }

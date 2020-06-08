@@ -12,7 +12,7 @@
             "cwd": "${workspaceRoot}",
             "executable": "./build/ch.elf",
             "device": "STM32F746ZG",
-            "svdFile": "${workspaceRoot}/../../tools/STM32F746.svd"
+            "svdFile": "${workspaceRoot}/tools/STM32F746.svd"
         },
 
         {

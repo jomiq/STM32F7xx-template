@@ -1,7 +1,9 @@
-This is based on the ChibiOS/RT demo project for ARM-Cortex-M7 STM32F746.
+Template project based on the ChibiOS/RT demo project for 
+ARM-Cortex-M7 STM32F746, modified for development using vscode and manual 
+makefiles. ChibiOS is included as a git submodule.
 
-- Added the ChibiOS github mirror as submodule b/c whynot.
-
+This is the original readme.txt documentation included at the end of this file.
+Please use README.md and sphinx for documentation. 
 
 *****************************************************************************
 ** ChibiOS/RT port for ARM-Cortex-M7 STM32F746.                            **

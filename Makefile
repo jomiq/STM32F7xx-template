@@ -120,7 +120,7 @@ LDSCRIPT= $(STARTUPLD)/STM32F746xG.ld
 # setting.
 CSRC = $(ALLCSRC) \
        $(TESTSRC) \
-       main.c
+       ./src/main.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -156,7 +156,7 @@ UDEFS =
 UADEFS =
 
 # List all user directories here
-UINCDIR =
+UINCDIR = ./include
 
 # List the user directory to look for the libraries here
 ULIBDIR =
