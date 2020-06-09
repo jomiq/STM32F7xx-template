@@ -17,7 +17,8 @@
 #include "ch.h"
 #include "hal.h"
 
-#include "include/project_globals.h"
+#include "project.h"
+#include "blink/blink.h"
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing

@@ -46,6 +46,7 @@
                     "./ChibiOS/os/hal/ports/STM32/LLD/ADCv2",
                     "./ChibiOS/os/hal/include",
                     "./ChibiOS/os/hal/ports/STM32/LLD/DACv1",
+                    "./include",
                     "./ChibiOS/os/hal/ports/STM32/LLD/CRYPv1",
                     "./ChibiOS/os/hal/ports/STM32/LLD/RTCv2",
                     "./ChibiOS/os/common/ports/ARMCMx/compilers/GCC"
@@ -98,6 +99,7 @@
                 "./ChibiOS/os/hal/ports/STM32/LLD/ADCv2",
                 "./ChibiOS/os/hal/include",
                 "./ChibiOS/os/hal/ports/STM32/LLD/DACv1",
+                "./include",
                 "./ChibiOS/os/hal/ports/STM32/LLD/CRYPv1",
                 "./ChibiOS/os/hal/ports/STM32/LLD/RTCv2",
                 "./ChibiOS/os/common/ports/ARMCMx/compilers/GCC"

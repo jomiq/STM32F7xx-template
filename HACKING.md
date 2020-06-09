@@ -1,6 +1,8 @@
 # Hacking
 
-This template was created on Arch linux. As a minimum an ARM compiler is needed. Suggest `arm-none-eabi-gcc` and `arm-none-eabi-newlib`.
+This template was derived from the ChibiOS/RT demo project for **ARM-Cortex-M7 NUCLEO STM32F746** to facilitate development on Arch linux. As a minimum an ARM compiler is needed. Suggest `arm-none-eabi-gcc` and `arm-none-eabi-newlib`. 
+
+Base project can be found at `ChibiOS/demos/STM32/RT-STM32F746ZG-NUCLEO144`
 
 For reference:
 ```
@@ -51,6 +53,10 @@ Edit to reflect your setup.
 ├── tools
 │   └── ...             [Debugging, uploading]
 ├── HACKING.md
-├── Makefile            [Makefile]
-└── readme_first.txt
+├── license.txt
+├── README.md
+└── Makefile            [Makefile]
+
 ```
+
+###
