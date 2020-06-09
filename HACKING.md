@@ -25,7 +25,12 @@ A sensible set of configurations are provided for vscode. To use them install th
  
 
 * **tools/c_cpp_properties.py** <br> 
-Produces IntelliSense .json configuration from `make` output. **PYTHON2** script.
+Produces IntelliSense .json configuration from `make` output. **PYTHON2** script. Adding a new module under `source` will generally require the paths to be reconfigured:
+    ```
+    $ make clean
+    $ make | python2 tools/c_cpp_properties.py -C \
+      arm-none-eabi-gcc > .vscode/c_cpp_properties.json
+    ```
 
 * **tools/flashme.sh**<br>
 Flashes mcu using st-flash. 
@@ -39,23 +44,31 @@ Edit to reflect your setup.
 ```
 .
 ├── build
-│   └── ...             [Output directory] 
+│   └── ...           [Output]
 ├── cfg
-│   ├── chconf.h        [ChibiOS configuration]    
-│   ├── halconf.h       [HAL configuration]
-│   └── mcuconf.h       [MCU settings]
-├── ChibiOS             [git submodule]
+│   ├── chconf.h      [RTOS config]
+│   ├── halconf.h     [HAL setup]
+│   └── mcuconf.h     [Device config]
+├── ChibiOS
+│   └── ...           [ChibiOS submodule]
 ├── include
-│   └── ...              [Project headers]
-├── src
-│   ├── main.c   
-|   └── ...             [Project source]
+│   └── ...           [Project level headers]
+├── libs
+│   └── ...           [Libraries]
+├── source
+│   ├── <module>
+|   |   ├── <module>.c
+│   |   └── <module>.h
+│   └── ...           [Everything in the source 
+|                      directory is compiled 
+|                      using autobuild.mk]
 ├── tools
-│   └── ...             [Debugging, uploading]
+│   └── ...           [Utilities]
 ├── HACKING.md
 ├── license.txt
-├── README.md
-└── Makefile            [Makefile]
+├── main.c            [Program entry point]
+├── Makefile          [Magic]
+└── README.md
 
 ```
 
