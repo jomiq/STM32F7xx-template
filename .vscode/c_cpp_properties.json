@@ -50,11 +50,8 @@
                     "./ChibiOS/os/hal/ports/STM32/LLD/RTCv2",
                     "./ChibiOS/os/common/ports/ARMCMx/compilers/GCC"
                 ],
-                "intelliSenseMode": "clang-x64",
-                "limitSymbolsToIncludedHeaders": true,
-                "defines": {
-                    "CORTEX_USE_FPU": "FALSE"
-                }
+                "limitSymbolsToIncludedHeaders": true
+                
             },
             "includePath": [
                 "/usr/arm-none-eabi/include/c++/10.1.0",
