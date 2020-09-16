@@ -19,5 +19,7 @@
     "python.pythonPath": "/bin/python",
     "git.ignoredRepositories": [
         "ChibiOS"
-    ]
+    ],
+    "doxdocgen.file.copyrightTag": ["(c) {year}"],
+    
 }
