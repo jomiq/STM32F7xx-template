@@ -19,6 +19,65 @@
 
 #include "project.h"
 #include "blink.h"
+#include "usbcfg.h"
+#include "usb.h"
+
+static const uint8_t txbuf[] =
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
+
+static uint8_t rxbuf[1024 + 1];
+
+/*
+ * USB writer. This thread writes data to the USB at maximum rate.
+ * Can be measured using:
+ *   dd if=/dev/xxxx of=/dev/null bs=512 count=10000
+ */
+static THD_WORKING_AREA(waWriter, 128);
+static THD_FUNCTION(Writer, arg) {
+
+  (void)arg;
+  chRegSetThreadName("writer");
+  while (true) {
+    msg_t msg = usbTransmit(&USBD2, USBD2_DATA_REQUEST_EP,
+                            txbuf, sizeof (txbuf));
+    if (msg == MSG_RESET)
+      chThdSleepMilliseconds(500);
+  }
+}
+
+/*
+ * USB reader. This thread reads data from the USB at maximum rate.
+ * Can be measured using:
+ *   dd if=bigfile of=/dev/xxx bs=512 count=10000
+ */
+static THD_WORKING_AREA(waReader, 128);
+static THD_FUNCTION(Reader, arg) {
+
+  (void)arg;
+  chRegSetThreadName("reader");
+  while (true) {
+    msg_t msg = usbReceive(&USBD2, USBD2_DATA_AVAILABLE_EP,
+                           rxbuf, sizeof (rxbuf));
+    if (msg == MSG_RESET)
+      chThdSleepMilliseconds(500);
+  }
+}
+
 
 /* 
  * Application entry point.
@@ -36,13 +95,15 @@ int main(void) {
   chSysInit();
 
   /*
-   * Activates the serial driver 3 using the driver default configuration.
-   */
-  sdStart(&SD3, NULL);
-  /*
    * Creates the blinky thread.
    */
   chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO + 1, Thread1, NULL);
+
+  /*
+  * Creates the USB threads
+  */
+  chThdCreateStatic(waReader, sizeof(waReader), NORMALPRIO, Reader, NULL);
+  chThdCreateStatic(waWriter, sizeof(waWriter), NORMALPRIO, Writer, NULL);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except
