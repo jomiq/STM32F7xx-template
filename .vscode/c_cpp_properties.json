@@ -5,11 +5,11 @@
             "browse": {
                 "databaseFilename": "",
                 "path": [
-                    "/usr/arm-none-eabi/include/c++/10.1.0",
-                    "/usr/arm-none-eabi/include/c++/10.1.0/arm-none-eabi",
-                    "/usr/arm-none-eabi/include/c++/10.1.0/backward",
-                    "/usr/lib/gcc/arm-none-eabi/10.1.0/include",
-                    "/usr/lib/gcc/arm-none-eabi/10.1.0/include-fixed",
+                    "/usr/arm-none-eabi/include/c++/10.2.0",
+                    "/usr/arm-none-eabi/include/c++/10.2.0/arm-none-eabi",
+                    "/usr/arm-none-eabi/include/c++/10.2.0/backward",
+                    "/usr/lib/gcc/arm-none-eabi/10.2.0/include",
+                    "/usr/lib/gcc/arm-none-eabi/10.2.0/include-fixed",
                     "/usr/arm-none-eabi/include",
                     "./ChibiOS/os/rt/include",
                     "./ChibiOS/os/hal/osal/rt-nil",
@@ -21,6 +21,7 @@
                     "./ChibiOS/os/hal/ports/STM32/LLD/DMAv2",
                     "./ChibiOS/os/hal/ports/STM32/LLD/OTGv1",
                     "./ChibiOS/os/hal/ports/STM32/LLD/RNGv1",
+                    "./source/usb/",
                     "./ChibiOS/os/hal/ports/STM32/LLD/SPIv2",
                     "./ChibiOS/os/hal/ports/STM32/LLD/CANv1",
                     "./source/",
@@ -34,6 +35,7 @@
                     "./ChibiOS/os/common/ext/ARM/CMSIS/Core/Include",
                     "./ChibiOS/os/common/ext/ST/STM32F7xx",
                     "./ChibiOS/os/hal/ports/STM32/LLD/EXTIv1",
+                    "./source/canbus/",
                     "./ChibiOS/os/license",
                     "./ChibiOS/os/hal/boards/ST_NUCLEO144_F746ZG",
                     "./ChibiOS/os/common/ports/ARMCMx",
@@ -47,18 +49,22 @@
                     "./ChibiOS/os/hal/ports/STM32/LLD/DACv1",
                     "./include",
                     "./ChibiOS/os/hal/ports/STM32/LLD/CRYPv1",
+                    "./ChibiOS/os/hal/ports/STM32/LLD/USART",
                     "./ChibiOS/os/hal/ports/STM32/LLD/RTCv2",
                     "./ChibiOS/os/common/ports/ARMCMx/compilers/GCC"
                 ],
-                "limitSymbolsToIncludedHeaders": true
-                
+                "intelliSenseMode": "clang-x64",
+                "limitSymbolsToIncludedHeaders": true,
+                "defines": {
+                    "CORTEX_USE_FPU": "FALSE"
+                }
             },
             "includePath": [
-                "/usr/arm-none-eabi/include/c++/10.1.0",
-                "/usr/arm-none-eabi/include/c++/10.1.0/arm-none-eabi",
-                "/usr/arm-none-eabi/include/c++/10.1.0/backward",
-                "/usr/lib/gcc/arm-none-eabi/10.1.0/include",
-                "/usr/lib/gcc/arm-none-eabi/10.1.0/include-fixed",
+                "/usr/arm-none-eabi/include/c++/10.2.0",
+                "/usr/arm-none-eabi/include/c++/10.2.0/arm-none-eabi",
+                "/usr/arm-none-eabi/include/c++/10.2.0/backward",
+                "/usr/lib/gcc/arm-none-eabi/10.2.0/include",
+                "/usr/lib/gcc/arm-none-eabi/10.2.0/include-fixed",
                 "/usr/arm-none-eabi/include",
                 "./ChibiOS/os/rt/include",
                 "./ChibiOS/os/hal/osal/rt-nil",
@@ -70,6 +76,7 @@
                 "./ChibiOS/os/hal/ports/STM32/LLD/DMAv2",
                 "./ChibiOS/os/hal/ports/STM32/LLD/OTGv1",
                 "./ChibiOS/os/hal/ports/STM32/LLD/RNGv1",
+                "./source/usb/",
                 "./ChibiOS/os/hal/ports/STM32/LLD/SPIv2",
                 "./ChibiOS/os/hal/ports/STM32/LLD/CANv1",
                 "./source/",
@@ -83,6 +90,7 @@
                 "./ChibiOS/os/common/ext/ARM/CMSIS/Core/Include",
                 "./ChibiOS/os/common/ext/ST/STM32F7xx",
                 "./ChibiOS/os/hal/ports/STM32/LLD/EXTIv1",
+                "./source/canbus/",
                 "./ChibiOS/os/license",
                 "./ChibiOS/os/hal/boards/ST_NUCLEO144_F746ZG",
                 "./ChibiOS/os/common/ports/ARMCMx",
@@ -96,13 +104,14 @@
                 "./ChibiOS/os/hal/ports/STM32/LLD/DACv1",
                 "./include",
                 "./ChibiOS/os/hal/ports/STM32/LLD/CRYPv1",
+                "./ChibiOS/os/hal/ports/STM32/LLD/USART",
                 "./ChibiOS/os/hal/ports/STM32/LLD/RTCv2",
                 "./ChibiOS/os/common/ports/ARMCMx/compilers/GCC"
             ],
             "name": "Linux",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
+            "cStandard": "gnu18",
             "cppStandard": "gnu++14"
         }
     ]
