@@ -20,6 +20,11 @@
     "git.ignoredRepositories": [
         "ChibiOS"
     ],
-    "doxdocgen.file.copyrightTag": ["(c) {year}"],
+    "doxdocgen.file.copyrightTag": [
+        "(c) {year}"
+    ],
+    "doxdocgen.generic.authorEmail": "jon.mihkkal.inga@gmail.com",
+    "doxdocgen.generic.authorName": "jomik",
+    "git.ignoreLimitWarning": true,
     
 }
